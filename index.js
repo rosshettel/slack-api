@@ -127,11 +127,14 @@ function apiMethod(sectionName, methodName) {
       }
     });
 
+    if (args.attachments) {
+        args.attachments = JSON.stringfiy(args.attachments);
+    }
+
     url = config.url + '?' + querystring.stringify(args);
 
     request
-      .post(config.url + '?token=' + config.token)
-      .send(args)
+      .get(url)
       .end(function(error, response) {
         if (error) {
           return done(new CommunicationError('Communication error while posting message to Slack. ' + error), null);
