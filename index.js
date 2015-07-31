@@ -130,7 +130,8 @@ function apiMethod(sectionName, methodName) {
     url = config.url + '?' + querystring.stringify(args);
 
     request
-      .get(url)
+      .post(config.url)
+      .send(args)
       .end(function(error, response) {
         if (error) {
           return done(new CommunicationError('Communication error while posting message to Slack. ' + error), null);
