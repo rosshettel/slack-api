@@ -128,7 +128,7 @@ function apiMethod(sectionName, methodName) {
     });
 
     if (args.attachments) {
-        args.attachments = JSON.stringfiy(args.attachments);
+        args.attachments = JSON.stringify(args.attachments);
     }
 
     url = config.url + '?' + querystring.stringify(args);
