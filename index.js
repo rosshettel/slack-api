@@ -128,6 +128,7 @@ function apiMethod(sectionName, methodName) {
     });
 
     if (args.attachments) {
+        //stringify attachments since querystring.stringify doesn't handle arrays
         args.attachments = JSON.stringify(args.attachments);
     }
 
