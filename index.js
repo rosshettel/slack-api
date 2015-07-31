@@ -130,7 +130,7 @@ function apiMethod(sectionName, methodName) {
     url = config.url + '?' + querystring.stringify(args);
 
     request
-      .post(config.url)
+      .post(config.url + '?token=' + config.token)
       .send(args)
       .end(function(error, response) {
         if (error) {
